@@ -36,6 +36,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -50,7 +56,21 @@
               ],
               "outputHashing": "all"
             },
-            "development": {
+            "stage": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.stage.ts"
+                }
+              ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
@@ -67,11 +87,14 @@
             "production": {
               "browserTarget": "angular-ssr-demo:build:production"
             },
-            "development": {
-              "browserTarget": "angular-ssr-demo:build:development"
+            "stage": {
+              "browserTarget": "angular-ssr-demo:build:stage"
+            },
+            "dev": {
+              "browserTarget": "angular-ssr-demo:build:dev"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -108,7 +131,31 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "outputHashing": "media"
+            },
+            "stage": {
+              "sourceMap": true,
+              "optimization": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.stage.ts"
+                }
+              ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -123,16 +170,20 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
-            "development": {
-              "browserTarget": "angular-ssr-demo:build:development",
-              "serverTarget": "angular-ssr-demo:server:development"
+            "stage": {
+              "browserTarget": "angular-ssr-demo:build:stage",
+              "serverTarget": "angular-ssr-demo:server:stage"
             },
             "production": {
               "browserTarget": "angular-ssr-demo:build:production",
               "serverTarget": "angular-ssr-demo:server:production"
+            },
+            "dev": {
+              "browserTarget": "angular-ssr-demo:build:dev",
+              "serverTarget": "angular-ssr-demo:server:dev"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev"
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",

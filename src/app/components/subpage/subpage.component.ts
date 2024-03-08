@@ -32,6 +32,7 @@ export class SubpageComponent {
   getData(){
     this.http.get('http://127.0.0.1:4523/m1/1817821-0-default/page/list').subscribe(res=>{
       this.data = (res as any).data
+      console.log("请求数据");
     })
   }
 }

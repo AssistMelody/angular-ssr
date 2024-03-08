@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxSsrCacheModule.configLruCache({ maxAge: 10 * 60_000, maxSize: 50 })
+    // NgxSsrCacheModule.configLruCache({ maxAge: 10 * 60_000, maxSize: 50 })
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent]

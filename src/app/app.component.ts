@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'home';
+  env = environment
   constructor(public meta:Meta){
     this.meta.removeTag('name=description')
     this.meta.removeTag('name=keyword')
@@ -19,4 +21,13 @@ export class AppComponent {
       name: 'keyword'
     }])
   }
+  ngOnInit(): void {
+    console.log("render 1 次");
+    console.log("environment",environment);
+  }
+
+  show(){
+    console.log("environment",environment);
+  }
+
 }
