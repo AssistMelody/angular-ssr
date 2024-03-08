@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     console.log("render 1 次");
-    console.log("environment",environment);
   }
 
   show(){

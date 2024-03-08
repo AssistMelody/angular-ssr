@@ -7,8 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run angular-ssr-demo:serve-ssr:stage",
+    "dev:ssr": "ng run angular-ssr-demo:serve-ssr:dev",
     "serve:ssr": "node dist/angular-ssr-demo/server/main.js",
+    "pm2": "pm2 start dist/angular-ssr-demo/server/main.js",
     "build:ssr": "sh build.sh",
     "prerender": "ng run angular-ssr-demo:prerender"
   },
@@ -26,6 +27,7 @@
     "@nguniversal/express-engine": "^16.2.0",
     "@ngx-ssr/cache": "^1.2.1",
     "express": "^4.15.2",
+    "pm2": "^5.3.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

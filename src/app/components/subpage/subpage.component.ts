@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class SubpageComponent {
   title = "sonPage"
   data:any[] = []
+  startTime: any = new Date()
+  apiTime: any = new Date()
   constructor(public meta:Meta,@Inject(PLATFORM_ID) private platformId: Object, public http: HttpClient){
     this.meta.removeTag('name=description')
     this.meta.removeTag('name=keyword')
@@ -30,9 +32,10 @@ export class SubpageComponent {
   }
 
   getData(){
-    this.http.get('http://127.0.0.1:4523/m1/1817821-0-default/page/list').subscribe(res=>{
+    const a = this.http.get('http://192.10.30.23:4523/m1/1817821-0-default/page/list').subscribe(res=>{
       this.data = (res as any).data
       console.log("请求数据");
+      this.apiTime = new Date()
     })
   }
 }
